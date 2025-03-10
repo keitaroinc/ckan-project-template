@@ -1,0 +1,43 @@
+---
+_subdirectory: template
+
+project_name:
+  type: str
+  help: CKAN project name?
+  placeholder: smallville-opendata
+  validator: >-
+    {% if not (project_name | regex_search('^[a-z][a-z0-9\-]+$')) %}
+    project_name must start with a letter, followed by one or more letters,
+    digits or dashes all lowercase.
+    {% endif %}
+
+project_description:
+  type: str
+  help: Provide a description for your CKAN project {{ project_name }}?
+  placeholder: Smallville open data CKAN portal.
+  validator: >-
+    {% if not project_description.strip() %}
+    Invalid project description
+    {% endif %}
+
+ckan_version:
+  type: str
+  help: CKAN version to use for project?
+  placeholder: 2.11.2
+  validator: |-
+    {% if not (ckan_version | regex_search('^(0|[1-9]\d*)\.(0|[1-9]\d*)\
+    .(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\
+    d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$')) %}
+    ckan_version must be a Semantic Version Number
+    {% endif %}
+
+python_version:
+  type: str
+  help: Which exact Python version should your CKAN project app use?
+  placeholder: 3.10.16
+  validator: |-
+    {% if not (python_version | regex_search('^(0|[1-9]\d*)\.(0|[1-9]\d*)\
+    .(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\
+    d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$')) %}
+    python_version must be a Semantic Version Number
+    {% endif %}

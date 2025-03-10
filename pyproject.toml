@@ -1,0 +1,41 @@
+[project]
+name = "ckan-project-template"
+version = "0.1.0"
+description = "CKAN project template using copier"
+authors = [
+    {name = "Keitaro Inc",email = "info@keitaro.com"}
+]
+license = {text = "Apache-2.0"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "copier>=9.6.0",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.1.0",
+    "ruff>=0.9.10",
+    "yamllint>=1.35.1",
+]
+
+[project.scripts]
+ckan-pilot = "ckan_pilot.root:cli"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "N",  # PEP8 naming convetions
+    "PL", # pylint
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

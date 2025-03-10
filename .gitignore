@@ -1,0 +1,20 @@
+# Caches
+__pycache__/
+.pre-commit-trivy-cache/
+.ruff_cache/
+
+# Packaging
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Unit test
+.pytest_cache/
+
+# Coverage
+.coverage
+
+# Virtual environments
+.venv
