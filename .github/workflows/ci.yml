@@ -1,0 +1,34 @@
+---
+name: CI
+
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Ruff
+        uses: astral-sh/ruff-action@v3
+
+      - name: Use Ruff for `check` & `format`
+        run: |
+          ruff check
+          ruff format --check
+
+      - name: 'Yamllint'
+        uses: karancode/yamllint-github-action@v2.1.1
+        with:
+          yamllint_file_or_dir: '.'
+          yamllint_strict: true
+          yamllint_comment: true
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
