@@ -1,7 +1,9 @@
 ---
 services:
   ckan:
-    image: ghcr.io/keitaroinc/ckan:${CKAN_VERSION}
+    build:
+      context: ../
+      dockerfile: Dockerfile
     networks:
       - frontend
       - backend
