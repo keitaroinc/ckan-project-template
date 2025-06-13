@@ -28,7 +28,7 @@ import urllib.request
 import psycopg2
 from sqlalchemy.engine.url import make_url
 
-ckan_ini = os.environ.get("CKAN_INI", "/app/production.ini")
+ckan_ini = os.environ.get("CKAN_INI", "/app/src/ckan/ckan.ini")
 
 RETRY = 5
 
