@@ -53,7 +53,6 @@ def check_db_connection(retry=None):
     except psycopg2.Error as e:
         print((str(e)))
         print("[prerun] Unable to connect to the database...try again in a while.")
-        import time
 
         time.sleep(10)
         check_db_connection(retry=retry - 1)
@@ -85,7 +84,6 @@ def check_solr_connection(retry=None):
             connection = urllib.request.urlopen(request)
     except urllib.error.URLError:
         print("[prerun] Unable to connect to solr...try again in a while.")
-        import time
 
         time.sleep(10)
         check_solr_connection(retry=retry - 1)
@@ -114,7 +112,6 @@ def init_db():
         if "OperationalError" in str(e.output):
             print(e.output.decode("utf-8"))
             print("[prerun] Database not ready, waiting a bit before exit...")
-            import time
 
             time.sleep(5)
             sys.exit(1)

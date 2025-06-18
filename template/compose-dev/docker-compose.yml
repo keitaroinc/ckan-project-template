@@ -1,5 +1,5 @@
 ---
-name: ckan
+name: pilot
 
 include:
   - path: services/ckan/ckan.yaml
