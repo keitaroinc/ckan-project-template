@@ -51,9 +51,10 @@ def check_db_connection(retry=None):
         connection = psycopg2.connect(user=db_user, host=db_host, password=db_passwd, database=db_name)
 
     except psycopg2.Error as e:
+        import time
+
         print((str(e)))
         print("[prerun] Unable to connect to the database...try again in a while.")
-        import time
 
         time.sleep(10)
         check_db_connection(retry=retry - 1)
