@@ -19,7 +19,7 @@ services:
       - ${PWD}/config/ckan/.env
     volumes:
       - ckan_data:/app/data
-    entrypoint: ["ckan", "-c", "/app/production.ini",
+    entrypoint: ["ckan", "-c", "/app/src/ckan/ckan.ini",
                  "jobs", "worker", "bulk"]
     healthcheck:
       disable: true
