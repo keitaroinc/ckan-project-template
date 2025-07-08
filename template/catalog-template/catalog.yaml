@@ -1,0 +1,47 @@
+---
+extensions:
+  - name: "<extension-name>"
+    url: "<git-url-or-source>"
+    version: "<tag-or-branch>"
+    description: >
+      <Long multi-line description of the extension>
+
+    supported_ckan_versions:
+      - "<version>"
+      - "<another-version>"
+
+    plugins:
+      - "<ckan.plugin.name1>"
+      - "<ckan.plugin.name2>"
+
+    configuration:
+      has_config_declaration: <true|false>
+      options:
+        - key: "<ckan.config.key>"
+          example: "<value>"
+          default: "<value>"
+          description: >
+            <What this config option does>
+          required: <true|false>
+
+    setup:
+      distributions:
+        alpine:
+          required_system_packages:
+            - <apk-package-name>
+            - <another-package>
+        ubuntu:
+          required_system_packages:
+            - <apt-package-name>
+      has_pyproject_toml: <true|false>
+      has_requirements: <true|false>
+      has_dev_requirements: <true|false>
+      init-config:
+        - "<post-install CLI commands>"
+      afterinit-config:
+        - "<run-after-init commands>"
+
+    metadata:
+      keywords:
+        - "<keyword1>"
+        - "<keyword2>"
