@@ -1,0 +1,11 @@
+# CKAN
+src/ckan/.circleci
+src/ckan/.devcontainer
+src/ckan/.tx
+src/ckan/doc
+src/ckan/test-infrastructure
+src/ckan/test-core-ci.ini
+src/ckan/test-core.ini
+src/ckan/SECURITY.md
+src/ckan/README.rst
+

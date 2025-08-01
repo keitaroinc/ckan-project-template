@@ -4,6 +4,16 @@ services:
     build:
       context: ../
       dockerfile: Dockerfile
+    develop:
+      watch:
+        - action: rebuild
+          path: ../extensions
+        - action: rebuild
+          path: ../compose-dev
+        - action: rebuild
+          path: ../src
+        - action: rebuild
+          path: ../Dockerfile
     networks:
       - frontend
       - backend
